@@ -5,10 +5,18 @@ button.addEventListener("click", () => {
 
 hero.classList.add("open");
 
-/* wait for door animation */
+/* wait for doors */
+
+setTimeout(()=>{
+
+document.body.classList.add("fade-out");
+
+/* after fade go to next page */
 
 setTimeout(()=>{
 window.location.href = "home.html";
-},1800);
+},1000);
+
+},1600);
 
 });
