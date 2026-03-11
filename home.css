@@ -1,0 +1,67 @@
+body{
+margin:0;
+font-family:"Playfair Display", serif;
+color:white;
+text-align:center;
+
+/* temple background */
+
+background-image:url("temple.png");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* translucent overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+z-index:-1;
+}
+
+.heading{
+margin-top:80px;
+font-size:52px;
+letter-spacing:6px;
+}
+
+/* menu layout */
+
+.menu{
+margin-top:120px;
+display:flex;
+justify-content:center;
+gap:80px;
+flex-wrap:wrap;
+}
+
+/* icon items */
+
+.item{
+cursor:pointer;
+transition:transform .3s ease;
+}
+
+.item img{
+width:70px;
+height:70px;
+filter:brightness(0) invert(1);  /* makes icons white */
+}
+
+.item p{
+margin-top:14px;
+letter-spacing:3px;
+font-size:18px;
+}
+
+/* hover animation */
+
+.item:hover{
+transform:scale(1.15);
+}

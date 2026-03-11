@@ -1,0 +1,80 @@
+body{
+margin:0;
+font-family:"Playfair Display", serif;
+}
+
+.hero{
+position:relative;
+height:100vh;
+overflow:hidden;
+}
+
+/* doors */
+
+.door{
+position:absolute;
+top:0;
+width:50%;
+height:100%;
+background-image:url("temple.png");
+background-size:200% 100%;
+background-repeat:no-repeat;
+transition:transform 2.8s ease-in-out;
+}
+
+/* left half */
+
+.left{
+left:0;
+background-position:left;
+}
+
+/* right half */
+
+.right{
+right:0;
+background-position:right;
+}
+
+/* subtle opening */
+
+.hero.open .left{
+transform:translateX(-60%);
+}
+
+.hero.open .right{
+transform:translateX(60%);
+}
+
+/* title */
+
+.title{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+color:rgb(255, 254, 254);
+text-align:center;
+}
+
+/* button */
+
+.enter{
+position:absolute;
+bottom:60px;
+left:50%;
+transform:translateX(-50%);
+padding:12px 36px;
+font-size:18px;
+letter-spacing:3px;
+color:white;
+background:transparent;
+border:1.5px solid white;
+cursor:pointer;
+transition:all 0.4s ease;
+}
+
+.enter:hover{
+background:rgba(255,255,255,0.15);
+letter-spacing:5px;
+}
