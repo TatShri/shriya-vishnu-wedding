@@ -3,18 +3,20 @@ const button = document.querySelector(".enter");
 
 button.addEventListener("click", () => {
 
-  // open the doors
-  hero.classList.add("open");
+hero.classList.add("open");
 
-  // when animation finishes, go to home page
-  const door = document.querySelector(".left");
+/* wait for doors to open */
 
-  door.addEventListener("transitionend", () => {
-      document.body.classList.add("fade-out");
+setTimeout(()=>{
 
-      setTimeout(() => {
-          window.location.href = "home.html";
-      }, 500);
-  }, { once: true });
+document.body.classList.add("fade-out");
+
+/* wait for fade */
+
+setTimeout(()=>{
+window.location.href="home.html";
+},1800);
+
+},3200);
 
 });

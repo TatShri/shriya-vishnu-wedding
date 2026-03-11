@@ -1,6 +1,25 @@
 body{
 margin:0;
 font-family:"Playfair Display", serif;
+color:white;
+text-align:center;
+background-image:url("temple.png");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* dark overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+z-index:-1;
 }
 
 .hero{
@@ -9,8 +28,14 @@ height:100vh;
 overflow:hidden;
 }
 
-/* doors */
+/* temple doors */
+.enter{
+z-index:10;
+}
 
+.door{
+z-index:1;
+}
 .door{
 position:absolute;
 top:0;
@@ -19,24 +44,18 @@ height:100%;
 background-image:url("temple.png");
 background-size:200% 100%;
 background-repeat:no-repeat;
-transition:transform 2.8s ease-in-out;
+transition:transform 3.2s ease-in-out;
 }
-
-/* left half */
 
 .left{
 left:0;
 background-position:left;
 }
 
-/* right half */
-
 .right{
 right:0;
 background-position:right;
 }
-
-/* subtle opening */
 
 .hero.open .left{
 transform:translateX(-60%);
@@ -53,37 +72,68 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-color:rgb(255, 254, 254);
-text-align:center;
+text-shadow:0 3px 18px rgba(0,0,0,0.6);
 }
 
-/* button */
+h1{
+font-size:64px;
+letter-spacing:6px;
+margin:0;
+}
+
+p{
+font-size:22px;
+letter-spacing:3px;
+}
+
+/* welcome button */
 
 .enter{
 position:absolute;
-bottom:60px;
+bottom:80px;
 left:50%;
 transform:translateX(-50%);
-padding:12px 36px;
-font-size:18px;
-letter-spacing:3px;
-color:white;
-background:transparent;
+padding:12px 40px;
 border:1.5px solid white;
+background:transparent;
+color:white;
+font-size:18px;
+letter-spacing:4px;
 cursor:pointer;
-transition:all 0.4s ease;
+
+/* smoother hover */
+transition:all .6s ease;
+
+/* subtle pulse animation */
+animation:invitePulse 4s ease-in-out infinite;
 }
 
 .enter:hover{
 background:rgba(255,255,255,0.15);
-letter-spacing:5px;
 }
 
-/* page fade */
+@keyframes invitePulse{
+
+0%{
+transform:translateX(-50%) scale(1);
+opacity:0.95;
+}
+
+50%{
+transform:translateX(-50%) scale(1.05);
+opacity:1;
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+opacity:0.95;
+}
+
+}
 
 body{
 opacity:1;
-transition:opacity 1s ease;
+transition:opacity 1.8s ease;
 }
 
 body.fade-out{

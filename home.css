@@ -1,38 +1,12 @@
 body{
 margin:0;
 font-family:"Playfair Display", serif;
-color:white;
+background:#faf6f2;
+color:#333;
 text-align:center;
-
-/* temple background */
-
-background-image:url("temple.png");
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
 }
 
-/* translucent overlay */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-z-index:-1;
-}
-
-body{
-animation:fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
+/* heading */
 
 .heading{
 margin-top:80px;
@@ -40,37 +14,112 @@ font-size:52px;
 letter-spacing:6px;
 }
 
-/* menu layout */
+/* mandala container */
 
-.menu{
-margin-top:120px;
-display:flex;
-justify-content:center;
-gap:80px;
-flex-wrap:wrap;
+.mandala{
+position:relative;
+width:420px;
+height:420px;
+margin:120px auto;
 }
 
-/* icon items */
+/* .mandala::before{
+content:"";
+position:absolute;
+top:50%;
+left:50%;
+width:320px;
+height:320px;
+border:1px solid rgba(0,0,0,0.15);
+border-radius:50%;
+transform:translate(-50%,-50%);
+} */
+
+/* items */
 
 .item{
+position:absolute;
+text-align:center;
 cursor:pointer;
 transition:transform .3s ease;
 }
 
-.item img{
-width:70px;
-height:70px;
-filter:brightness(0) invert(1);  /* makes icons white */
+.item i{
+width:40px;
+height:40px;
+stroke-width:1.5;
 }
 
 .item p{
-margin-top:14px;
-letter-spacing:3px;
-font-size:18px;
+margin-top:12px;
+letter-spacing:2px;
+font-size:14px;
 }
 
-/* hover animation */
+/* positions */
 
-.item:hover{
-transform:scale(1.15);
+.top{
+top:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.bottom{
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.left{
+left:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+.right{
+right:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+/* Schedule (top) — move slightly right */
+
+.top:hover{
+transform:translateX(-36%) scale(1.1);
+}
+
+/* Save the Date (left) — move upward */
+
+.left:hover{
+transform:translateY(-65%) scale(1.1);
+}
+
+/* Location (right) — move slightly down */
+
+.right:hover{
+transform:translateY(-36%) scale(1.1);
+}
+
+/* Details (bottom) — move left */
+
+.bottom:hover{
+transform:translateX(-65%) scale(1.1);
+}
+
+/* Prevent icon color from changing to blue on link hover */
+.mandala a {
+  color: inherit;
+}
+.mandala a:visited {
+  color: inherit;
+}
+.mandala a:hover i,
+.mandala a:focus i {
+  color: inherit !important;
+  stroke: inherit !important;
+}
+.mandala i[data-lucide] {
+  color: #333;
+  stroke: #333;
+  transition: none;
 }
